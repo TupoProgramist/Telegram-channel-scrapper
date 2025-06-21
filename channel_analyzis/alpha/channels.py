@@ -1,8 +1,12 @@
 from pyrogram import Client
+import json
 
-# API credentials from my.telegram.org
-api_id = 26787318  # Replace with your API ID
-api_hash = 'fed8f0bf35c374a0ebc0106618739e6a'  # Replace with your API Hash
+# Load credentials from config file
+with open('../credentials.json', 'r') as f:
+    config = json.load(f)
+
+api_id = config['api_id']  # Load from config
+api_hash = config['api_hash']  # Load from config
 
 # Create a Pyrogram Client
 app = Client("channel_get_posts", api_id=api_id, api_hash=api_hash)

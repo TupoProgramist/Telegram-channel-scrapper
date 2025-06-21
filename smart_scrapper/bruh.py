@@ -1,7 +1,12 @@
 from telethon.sync import TelegramClient
 from telethon import functions, types
+import json
 
-with TelegramClient("bruh", 26787318, "fed8f0bf35c374a0ebc0106618739e6a") as client:
+# Load credentials from config file
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
+with TelegramClient("bruh", config['api_id'], config['api_hash']) as client:
     result = client(functions.channels.GetChannelRecommendationsRequest(
         channel='@pragmatikamedia'
     ))

@@ -12,9 +12,8 @@ def get_chatgpt_response(prompt, api_key):
     )
     return response['choices'][0]['message']['content'].strip()
 
-def main():
-    # Replace 'your-api-key' with your actual OpenAI API key
-    api_key = 'your-api-key'
+def main():    # API key placeholder - should be loaded from environment variable or config file
+    api_key = 'YOUR_OPENAI_API_KEY'
     
     # Ask the user for an input string
     user_input = input("Please enter your input string: ")
